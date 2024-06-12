@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import About from './About';
+import Certificates from './Certificates';
+import Internships from './Internships';
+import Projects from './Projects';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav className="navbar">
+          <div className="navbar-left">
+            <h1>Ramachandran M</h1>
+          </div>
+          <div className="navbar-right">
+            <Link to="/">About Me</Link>
+            <Link to="/certificates">Certificates</Link>
+            <Link to="/internships">Internships</Link>
+            <Link to="/projects">Projects</Link>
+          </div>
+        </nav>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/internships" element={<Internships />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
